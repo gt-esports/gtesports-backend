@@ -10,9 +10,6 @@ const db = mongoose.connection
 db.on('error', (error) => console.error(error))
 db.once('open', () => console.log("Connected to database"))
 
-const gamesRouter = require('./routes/games')
+const gamesRouter = require('./api/routes/games')
 app.use('/games', gamesRouter)
-app.get('/api', (req, res) => {
-    res.send("Hello World")
-})
 app.listen(3000, () => console.log("Server started"))

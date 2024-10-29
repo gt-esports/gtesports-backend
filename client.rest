@@ -25,3 +25,13 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/games/67203036959d355876bc2d74
+
+
+###
+DELETE http://localhost:3000/games
+
+###
+GET http://localhost:3000/api
+
+###
+DELETE http://localhost:3000/games/name/League%20of%20Legends

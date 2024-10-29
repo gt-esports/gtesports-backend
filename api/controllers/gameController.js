@@ -51,12 +51,24 @@ const deleteGame = async (req, res) => {
 const deleteAllGames = async(req, res) => {
     try {
         await Game.deleteMany({});
-        res.status(200).json({ message: 'All games deleted' });
+        res.status(204).json({ message: 'All games deleted' });
     } catch (err) {
         res.status(500).json({ messge: err.message})
     }
 }
+
+const deleteGameByName = async (req, res) => {
+    try {
+      const game = await Game.findOneAndDelete({ name: req.params.name });
+      if (!game) return res.status(404).json({ message: 'Game not found' });
+      res.status(204).end();
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+};
+
 module.exports = {
+  deleteGameByName,
   createGame,
   getGames,
   updateGame,
