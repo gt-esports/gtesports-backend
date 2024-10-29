@@ -1,5 +1,7 @@
 GET http://localhost:3000/games
+
 ###
+
 GET http://localhost:3000/games/67203036959d355876bc2d74
 
 ###
@@ -15,6 +17,7 @@ Content-Type: application/json
 }
 
 ###
+
 PATCH http://localhost:3000/games/672037d704ab69d8aaf3024c
 Content-Type: application/json
 
@@ -25,16 +28,20 @@ Content-Type: application/json
 }
 
 ###
+
 DELETE http://localhost:3000/games/67203036959d355876bc2d74
 
 
 ###
+
 DELETE http://localhost:3000/games
 
 ###
+
 GET http://localhost:3000/api
 
 ###
+
 DELETE http://localhost:3000/games/name/League%20of%20Legends
 
 ### GET all games of type casual
