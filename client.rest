@@ -9,6 +9,7 @@ Content-Type: application/json
 
 {
     "name": "League of Legends",
+    "gameType": 0,
     "discordLink": "league discord",
     "imageLink": "lol image"
 }

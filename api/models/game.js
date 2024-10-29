@@ -5,6 +5,12 @@ const gameSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    gameType: {
+        type: String,
+        required: true,
+        enum: ['comp', 'casual'],
+        message: 'gameType must be either "comp" or "casual"'
+    },
     discordLink: {
         type: String,
         required: true,

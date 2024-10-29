@@ -4,27 +4,56 @@ const Game = require('../models/game');
 const createGame = async (req, res) => {
     const game = new Game({
         name: req.body.name,
+        gameType: req.body.gameType,
         discordLink: req.body.discordLink,
         imageLink: req.body.imageLink
     })
     try {
-        const newGame = await game.save()
-        res.status(201).json({newGame})
+      const newGame = await game.save()
+      res.status(201).json({newGame})
     } catch (err) {
-        res.status(400).json({ message: err.message })
+      res.status(400).json({ message: err.message })
     }
-};
-
-// Get all games
-const getGames = async (req, res) => {
-  try {
-    const games = await Game.find();
+  };
+  
+  // Get all games
+  const getGames = async (req, res) => {
+    try {
+      const games = await Game.find();
     res.status(200).json(games);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
+// get game by id
+const getGameByID = async (req, res) => {
+  try {
+    const game = await Game.findById(req.params.id);
+    res.status(200).json(game);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+}
 
+// get game by name
+const getGameByName = async (req, res) => {
+  try {
+    const games = await Game.find({name: req.params.name });
+    res.status(200).json(games);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+}
+
+// Get Game by game type
+const getGamesByType = async (req, res) => {
+  try {
+    const games = await Game.find({gameType: req.params.gameType});
+    res.status(200).json(games);
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+}
 // Update a game
 const updateGame = async (req, res) => {
   try {
@@ -67,6 +96,7 @@ const deleteGameByName = async (req, res) => {
     }
 };
 
+
 module.exports = {
   deleteGameByName,
   createGame,
@@ -74,4 +104,7 @@ module.exports = {
   updateGame,
   deleteGame,
   deleteAllGames,
+  getGameByID,
+  getGameByName,
+  getGamesByType,
 };
