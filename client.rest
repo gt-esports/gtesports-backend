@@ -1,0 +1,27 @@
+GET http://localhost:3000/games
+###
+GET http://localhost:3000/games/67203036959d355876bc2d74
+
+###
+
+POST http://localhost:3000/games
+Content-Type: application/json
+
+{
+    "name": "League of Legends",
+    "discordLink": "league discord",
+    "imageLink": "lol image"
+}
+
+###
+PATCH http://localhost:3000/games/672037d704ab69d8aaf3024c
+Content-Type: application/json
+
+{
+    "name": "sike changed again",
+    "discordLink": "apex discord",
+    "imageLink": "hiuh"
+}
+
+###
+DELETE http://localhost:3000/games/67203036959d355876bc2d74
