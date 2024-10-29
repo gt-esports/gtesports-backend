@@ -4,8 +4,8 @@ const { getGameByID, getGameByName, getGamesByType, deleteGameByName, deleteAllG
 const router = express.Router();
 router.post('/', createGame);         // Create a new game
 router.get('/', getGames);            // Get all games
-router.get('/name/:name', getGameByName);
 router.get('/:id', getGameByID);
+router.get('/name/:name', getGameByName);
 router.get('/gameType/:gameType', getGamesByType);
 router.patch('/:id', updateGame);       // Update a game by ID
 router.delete('/name/:name', deleteGameByName); // Delete a game by name

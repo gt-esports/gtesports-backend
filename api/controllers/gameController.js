@@ -29,9 +29,10 @@ const createGame = async (req, res) => {
 const getGameByID = async (req, res) => {
   try {
     const game = await Game.findById(req.params.id);
+    if (game == null) {return res.status(404).json({ message: 'Game could not be found' })}
     res.status(200).json(game);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(404).json({ message: err.message });
   }
 }
 
@@ -65,16 +66,22 @@ const updateGame = async (req, res) => {
   }
 };
 
-// Delete a game
+const mongoose = require('mongoose');
+
 const deleteGame = async (req, res) => {
+  const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid game ID' });
+  }
   try {
-    const game = await Game.findByIdAndDelete(req.params.id);
+    const game = await Game.findByIdAndDelete(id);
     if (!game) return res.status(404).json({ message: 'Game not found' });
     res.status(204).end();
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
+
 
 // Delete all
 const deleteAllGames = async(req, res) => {

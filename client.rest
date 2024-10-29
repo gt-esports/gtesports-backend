@@ -8,8 +8,8 @@ POST http://localhost:3000/games
 Content-Type: application/json
 
 {
-    "name": "League of Legends",
-    "gameType": 0,
+    "name": "comp3",
+    "gameType": "comp",
     "discordLink": "league discord",
     "imageLink": "lol image"
 }
@@ -36,3 +36,6 @@ GET http://localhost:3000/api
 
 ###
 DELETE http://localhost:3000/games/name/League%20of%20Legends
+
+### GET all games of type casual
+GET http://localhost:3000/games/gameType/comp

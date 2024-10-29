@@ -11,6 +11,7 @@ test.describe('Game API Tests', () => {
   test('should create a new game', async ({ request }) => {
     const newGame = {
       name: 'Test Game',
+      gameType: 'comp',
       discordLink: 'http://discord.gg/test',
       imageLink: 'http://example.com/image.png'
     };
@@ -40,8 +41,18 @@ test.describe('Game API Tests', () => {
     expect(updatedGame.discordLink).toBe(updateData.discordLink);
   });
 
-  // Test for deleting a game by ID
+  // Test to create and delete game
   test('should delete a game by ID', async ({ request }) => {
+    // Ensure gameId is valid
+    if (!gameId) {
+      throw new Error('gameId is not set. Ensure the game creation test ran successfully.');
+    }
+    
+    console.log('Attempting to check if game exists with ID:', gameId);
+    const getResponse = await request.get(`${BASE_URL}/${gameId}`);
+    expect(getResponse.status()).toBe(200);
+    console.log('Attempting to delete game with ID:', gameId);
+
     const response = await request.delete(`${BASE_URL}/${gameId}`);
     expect(response.status()).toBe(204); // No content returned
 
@@ -50,10 +61,13 @@ test.describe('Game API Tests', () => {
     expect(fetchResponse.status()).toBe(404); // Should return 404 Not Found
   });
 
+
+
   // Test for creating a game again to check delete all functionality
   test('should create another game for delete all test', async ({ request }) => {
     const newGame = {
       name: 'Another Game',
+      gameType: 'casual',
       discordLink: 'http://discord.gg/another',
       imageLink: 'http://example.com/another.png'
     };
