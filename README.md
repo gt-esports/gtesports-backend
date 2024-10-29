@@ -29,8 +29,8 @@ Then, start your server by running
 npm run devStart
 ```
 ## Testing
-Refer to tests file. Currently, testing only includes some functionality for the Game API, but more will be added in the near future.
-
+Refer to tests folder and client.rest file. Currently, automated testing only includes some functionality for the Game API, but more will be added in the near future.
+#### Playwright
 This project utilizes playwright's testing library
 ```bash
 npm install @playwright/test
@@ -40,6 +40,9 @@ You can run the tests by running
 npx playwright test
 ```
 Create new tests in the tests folder following the ```${api_name}.spec.js``` format
+
+#### Rest Client (VSCode extension)
+You can directly test the API by using the client.rest file. You can use any file as long as its extension is `.rest`.
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
