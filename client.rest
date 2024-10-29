@@ -45,4 +45,5 @@ GET http://localhost:3000/api
 DELETE http://localhost:3000/games/name/League%20of%20Legends
 
 ### GET all games of type casual
+
 GET http://localhost:3000/games/gameType/comp
