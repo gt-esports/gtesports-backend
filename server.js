@@ -12,4 +12,6 @@ db.once("open", () => console.log("Connected to database"));
 
 const gamesRouter = require("./api/routes/games");
 app.use("/games", gamesRouter);
+const recruitmentRouter = require("./api/routes/recruitments");
+app.use("/recruitment", recruitmentRouter)
 app.listen(3000, () => console.log("Server started"));

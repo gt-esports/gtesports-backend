@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 
 const recruitmentSchema = new mongoose.Schema({
-  id: {
-    type: Number,
+  postID: {
+    type: String,
     required: true,
+    unique: true,
   },
   title: {
     type: String,
@@ -16,6 +17,7 @@ const recruitmentSchema = new mongoose.Schema({
   role: {
     type: String,
     required: false,
+    default: null,  
   },
   description: {
     type: String,
@@ -24,7 +26,6 @@ const recruitmentSchema = new mongoose.Schema({
   tryoutDate: {
     type: Date,
     required: true,
-    default: Date.now,
   },
 });
 

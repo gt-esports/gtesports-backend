@@ -3,7 +3,7 @@ const Recruitment = require("../models/recruitment");
 // Create a recruitment event
 const createRecruitment = async (req, res) => {
   const recruitment = new Recruitment({
-    id: req.body.id,
+    postID: req.body.postID,
     title: req.body.title,
     game: req.body.game,
     role: req.body.role,
@@ -18,10 +18,10 @@ const createRecruitment = async (req, res) => {
   }
 };
 
-// Update a recruitment event by id
+// Update a recruitment event by postID
 const updateRecruitment = async (req, res) => {
   try {
-    const recruitment = await Recruitment.findById(req.params.id);
+    const recruitment = await Recruitment.findOne({ postID: req.params.postID});
     if (recruitment == null) {
       return res
         .status(404)
@@ -59,10 +59,20 @@ const getRecruitments = async (req, res) => {
   }
 };
 
+// Get recruitment by id
+const getRecruitmentByID = async (req, res) => {
+  try {
+    const recruitment = await Recruitment.find({ postID: req.params.postID});
+    res.status(200).json(recruitment);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+}
+
 // Delete a recruitment event by id
 const deleteRecruitment = async (req, res) => {
   try {
-    const recruitment = await Recruitment.findById(req.params.id);
+    const recruitment = await Recruitment.find({ postID: req.params.postID});
     if (recruitment == null) {
       return res
         .status(404)
@@ -91,4 +101,5 @@ module.exports = {
   getRecruitments,
   deleteRecruitment,
   deleteAllRecruitments,
+  getRecruitmentByID
 };

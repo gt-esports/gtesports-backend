@@ -1,7 +1,5 @@
 GET http://localhost:3000/games
-
 ###
-
 GET http://localhost:3000/games/67203036959d355876bc2d74
 
 ###
@@ -17,7 +15,6 @@ Content-Type: application/json
 }
 
 ###
-
 PATCH http://localhost:3000/games/672037d704ab69d8aaf3024c
 Content-Type: application/json
 
@@ -28,22 +25,38 @@ Content-Type: application/json
 }
 
 ###
-
-DELETE http://localhost:3000/games/67203036959d355876bc2d74
+DELETE http://localhost:3000/games/6721208e424a7dc56a918b2e
 
 
 ###
-
 DELETE http://localhost:3000/games
 
 ###
-
 GET http://localhost:3000/api
 
 ###
-
 DELETE http://localhost:3000/games/name/League%20of%20Legends
 
 ### GET all games of type casual
-
 GET http://localhost:3000/games/gameType/comp
+
+### 
+
+GET http://localhost:3000/recruitment
+
+###
+POST http://localhost:3000/recruitment
+Content-Type: application/json
+
+{
+    "postID": "league0912341",
+    "title": "League of Legends A Team Tryout",
+    "game": "league of legends",
+    "role": "All roles available",
+    "description": "Recruitment description",
+    "tryoutDate": "12-10-2024"
+}
+
+###
+GET http://localhost:3000/recruitment/postID/league0912341
+
