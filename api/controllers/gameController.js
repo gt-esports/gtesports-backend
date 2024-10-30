@@ -1,4 +1,5 @@
 const Game = require("../models/game");
+const mongoose = require("mongoose");
 
 // Create a game
 const createGame = async (req, res) => {
@@ -70,7 +71,6 @@ const updateGame = async (req, res) => {
   }
 };
 
-const mongoose = require("mongoose");
 
 const deleteGame = async (req, res) => {
   const { id } = req.params;

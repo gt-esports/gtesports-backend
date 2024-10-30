@@ -12,6 +12,7 @@ const {
 } = require("../controllers/gameController");
 
 const router = express.Router();
+
 router.post("/", createGame); // Create a new game
 router.get("/", getGames); // Get all games
 router.get("/:id", getGameByID);

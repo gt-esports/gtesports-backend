@@ -1,6 +1,4 @@
 const express = require("express");
-const router = express.Router();
-
 const {
   deleteAllRecruitments,
   createRecruitment,
@@ -9,6 +7,9 @@ const {
   updateRecruitment,
   deleteRecruitment,
 } = require("../controllers/recruitmentController");
+
+const router = express.Router();
+
 
 router.post("/", createRecruitment); // Create a new recruitment event
 router.get("/", getRecruitments); // Get all recruitment events
