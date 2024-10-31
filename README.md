@@ -1,6 +1,14 @@
 # GT Esports Backend
 
-This repo is the new & improved Express RESTful API serving MongoDB for the [GT Esports website](https://www.gatechesports.com)
+This repo is the new & improved Express RESTful API serving MongoDB for the [GT Esports website](https://www.gatechesports.com)\
+This backend serves a smaller low-traffic web application, so I'm only using simple architecture.
+
+## Current/Future Direction:
+- Finish implementing event/news API
+- Fix error handling in game and recruitment routes, and improve codebase structure overall
+- Fix security issues with error handling (separate dev and prod environments)
+- Looking into hateaos and hyperlinked resources to ease development and avoid any hardcoded links (credit to @Judekeyser for the feedback)
+- Authentication (will be last)
 
 ## Installation
 
